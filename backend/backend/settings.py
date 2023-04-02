@@ -16,6 +16,19 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'social.user.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+    # )
+}
 
 # Application definition
 
@@ -26,6 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'social',
+    'social.user',
+
+    'rest_framework',
+    'coresheaders',
 ]
 
 MIDDLEWARE = [
