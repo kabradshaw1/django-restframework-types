@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "social"
+version = "0.1.0"
+description = "This social media site to demonstrate dango restframework application with pyright and poetry"
+authors = ["kabradshaw1 <itllbok82@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django-types = "^0.17.0"
+python-decouple = "^3.8"
+pyright = "^1.1.301"
+psycopg2 = "^2.9.5"
+djangorestframework-simplejwt = "^5.2.2"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^3.14.0"
+coverage = "^7.2.2"
+djangorestframework-types = "^0.8.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
