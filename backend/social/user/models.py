@@ -1,4 +1,6 @@
 from django.db import models
+from typing import Any, Literal
+from django.db.models.manager import Manager
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
@@ -38,6 +40,10 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    posts: Manager[Post]
+    moderated_thread: Manager[Thread]
+    threads: models.ManyToManyField[Thread, UserThread]
+    
     username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(db_index=True, unique=True,  null=True, blank=True)
     is_active = models.BooleanField(default=True)
